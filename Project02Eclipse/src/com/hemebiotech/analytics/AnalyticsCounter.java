@@ -20,7 +20,7 @@ public class AnalyticsCounter {
 				headacheCount++;
 				System.out.println("number of headaches: " + headacheCount);
 			}
-			else if (line.equals("rush")) {
+			else if (line.equals("rash")) {
 				rashCount++;
 			}
 			else if (line.contains("pupils")) {
