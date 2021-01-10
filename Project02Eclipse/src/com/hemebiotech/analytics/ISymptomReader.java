@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Anything that will read symptom data from a source
@@ -11,6 +12,7 @@ import java.util.ArrayList;
  * 
  */
 public interface ISymptomReader {
+	
 	/**
 	 * If no data is available, return an empty List
 	 * 
@@ -20,6 +22,17 @@ public interface ISymptomReader {
 	 * @param filepath link of symptom file to analyze
 	 *    
 	 */
-public ArrayList<String> getSymptomsWithDuplicate(String filepath);
+	public ArrayList<String> getSymptomsWithDuplicate(String filepath);
 
+
+	/**
+	 * If no data is available, return an empty Map
+	 * 
+	 * @return a dictionary of all the symptoms obtained from a data source in the
+	 *         <b> format: { key (symptom): value (occurrence) } </b>. Duplicates
+	 *         are not possible/probable
+	 *         
+	 * @param listSymptomWithDuplicat list of symptoms with duplicates
+	 */
+	public Map<String, Integer> getSymptomsRate(ArrayList<String> listSymptomWithDuplicat);
 }
