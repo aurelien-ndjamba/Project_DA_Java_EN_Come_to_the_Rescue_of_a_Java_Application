@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filepath;
 	
 	/**
 	 * 
