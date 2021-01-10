@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Simple brute force implementation
+ * Class representing to read data from a file on disk.
+ * 
+ * @author aurelen.ndjamba @version 1.0
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
