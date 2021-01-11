@@ -51,12 +51,43 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}  //-> Renvoi un message d'erreur dans le bloc finally
+				}  
 			}
 		}
 
 		return listSymptomWithDuplicat;
 	}
+	
+	
+	/**
+	 * If no data is available, return an empty Map
+	 * 
+	 * @return a dictionary of all the symptoms obtained from a data source in the
+	 *         <b> format: { key (symptom): value (occurrence) } </b>. Duplicates
+	 *         are not possible/probable
+	 *         
+	 * @param listSymptomWithDuplicat list of symptoms with duplicates
+	 */
+	@Override	
+	public Map<String, Integer> getSymptomsRate(ArrayList<String> listSymptomWithDuplicat) {
+	
+			Map<String, Integer> SymptomsRate = new TreeMap<String, Integer>(); 
+	
+			for (String n : listSymptomWithDuplicat) {
+				if (SymptomsRate.containsKey(n)) { 
+	
+					int occurenceMoment = SymptomsRate.get(n);
+					SymptomsRate.put(n, occurenceMoment + 1);
+	
+				} else {
+	
+					SymptomsRate.put(n, 1);
+				}
+			}
+			
+			return SymptomsRate;
+
+}
 
 
 }
